@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HumaneSociety
 {
-    class Food
+    public class Food
     {
+
     }
 }

@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace HumaneSociety
 {
-    class Employee
+    public class Employee
     {
+        public Employee()
+        {
+      
+        }
+        public void FeedAnimal()
+        {
+            
+        }
+        public void GiveMedicine()
+        {
+
+        }
     }
 }

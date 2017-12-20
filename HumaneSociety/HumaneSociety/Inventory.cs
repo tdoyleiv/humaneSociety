@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace HumaneSociety
 {
-    class Inventory
+    public class Inventory
     {
+        Medicine medicine = new Medicine();
+        Food food = new Food();
     }
 }
