@@ -12,13 +12,16 @@ namespace HumaneSociety
         {
       
         }
-        public void FeedAnimal()
-        {
-            
-        }
         public void GiveMedicine()
         {
-
+            try
+            {
+                
+            }
+            catch (Exception e)
+            {
+                throw new Exception(string.Format("{0} occurred, invalid input.", e));
+            }
         }
     }
 }

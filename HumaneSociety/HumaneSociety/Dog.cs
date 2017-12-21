@@ -8,7 +8,7 @@ namespace HumaneSociety
 {
     public class Dog : Animal
     {
-        public Dog(string name, string type, int age, string gender, double weight, string color, string temperament, bool isAdopted, bool isFed, bool hasMedicine)
+        public Dog(string name, string type, int age, string gender, double weight, string color, string temperament, bool isAdopted, bool hasMedicine)
         {
             name = Name;
             type = Type;
@@ -18,7 +18,6 @@ namespace HumaneSociety
             color = Color;
             temperament = Temperament;
             isAdopted = IsAdopted;
-            isFed = IsFed;
             hasMedicine = HasMedicine;
         }
     }

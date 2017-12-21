@@ -16,7 +16,6 @@ namespace HumaneSociety
         string color;
         string temperament;
         bool isAdopted;
-        bool isFed;
         bool hasMedicine;
         public string Name
         {
@@ -58,19 +57,10 @@ namespace HumaneSociety
             get { return isAdopted; }
             set { isAdopted = value; }
         }
-        public bool IsFed
-        {
-            get { return isFed; }
-            set { isFed = value; }
-        }
         public bool HasMedicine
         {
             get { return hasMedicine; }
             set { hasMedicine = value; }
-        }
-        public virtual void Eat()
-        {
-            IsFed = true;
         }
         public virtual void TakeMedicine()
         {

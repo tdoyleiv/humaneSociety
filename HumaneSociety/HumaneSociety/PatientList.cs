@@ -15,11 +15,25 @@ namespace HumaneSociety
         }
         public void AddPatient(object patient)
         {
-            patientList.Add(patient);
+            try
+            {
+                patientList.Add(patient);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(string.Format("{0} occurred, invalid input.", e));
+            }
         }
         public void DeletePatient(object patient)
         {
-            patientList.Remove(patient);
+            try
+            {
+                patientList.Remove(patient);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(string.Format("{0} occurred, invalid input.", e));
+            }
         }
     }
 }

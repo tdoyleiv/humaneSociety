@@ -22,5 +22,10 @@ namespace HumaneSociety
         {
             HasPaid = true;
         }
+        public Profile CreateProfile()
+        {
+            Profile profile = new Profile(null, null, 0, 0.00, false, 0, false, null);
+            return profile;
+        }
     }
 }
