@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HumaneSociety
 {
-    class Rabbit
+    public class Rabbit : Animal
     {
     }
 }

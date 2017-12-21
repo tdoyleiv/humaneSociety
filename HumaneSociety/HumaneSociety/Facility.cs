@@ -11,6 +11,7 @@ namespace HumaneSociety
         Room room = new Room(0, false, null);
         Inventory inventory = new Inventory();
         internal Employee employee = new Employee();
+        PatientList patientList = new PatientList();
         public Facility()
         {
             
@@ -21,7 +22,6 @@ namespace HumaneSociety
             {
                 if (room.IsOccupied == false)
                 {
-                    //room.Occupant = new Animal<T>();
                     room.IsOccupied = true;
                 }
                 else if (room.IsOccupied == true)
