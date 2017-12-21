@@ -11,9 +11,8 @@ namespace HumaneSociety
         string firstName;
         string lastName;
         int age;
-        double incomePerYear;
+        decimal incomePerYear;
         bool hasChildren;
-        int numberOfChildren;
         bool hasCriminalRecord;
         string description;
         public string FirstName
@@ -31,7 +30,7 @@ namespace HumaneSociety
             get { return age; }
             set { age = value; }
         }
-        public double IncomePerYear
+        public decimal IncomePerYear
         {
             get { return incomePerYear; }
             set { incomePerYear = value; }
@@ -40,11 +39,6 @@ namespace HumaneSociety
         {
             get { return hasChildren; }
             set { hasChildren = value; }
-        }
-        public int NumberOfChildren
-        {
-            get { return numberOfChildren; }
-            set { numberOfChildren = value; }
         }
         public bool HasCriminalRecord
         {
@@ -56,14 +50,13 @@ namespace HumaneSociety
             get { return description; }
             set { description = value; }
         }
-        public Profile(string firstName, string lastName, int age, double incomePerYear, bool hasChildren, int numberOfChildren, bool hasCriminalRecord, string description)
+        public Profile(string firstName, string lastName, int age, decimal incomePerYear, bool hasChildren, bool hasCriminalRecord, string description)
         {
             firstName = FirstName;
             lastName = LastName;
             age = Age;
             incomePerYear = IncomePerYear;
             hasChildren = HasChildren;
-            numberOfChildren = NumberOfChildren;
             hasCriminalRecord = HasCriminalRecord;
             description = Description;
         }
