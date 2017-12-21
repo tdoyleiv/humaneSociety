@@ -14,7 +14,7 @@ namespace HumaneSociety
         string gender;
         double weight;
         string color;
-        string temperment;
+        string temperament;
         bool isAdopted;
         bool isFed;
         bool hasMedicine;
@@ -28,10 +28,30 @@ namespace HumaneSociety
             get { return type; }
             set { name = value; }
         }
-        public string Temperment
+        public int Age
         {
-            get { return temperment; }
-            set { temperment = value; }
+            get { return age; }
+            set { age = value; }
+        }
+        public string Gender
+        {
+            get { return gender; }
+            set { gender = value; }
+        }
+        public double Weight
+        {
+            get { return weight; }
+            set { weight = value; }
+        }
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+        public string Temperament
+        {
+            get { return temperament; }
+            set { temperament = value; }
         }
         public bool IsAdopted
         {

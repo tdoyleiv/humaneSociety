@@ -28,9 +28,9 @@ namespace HumaneSociety
         }
         public Room(int roomNumber, bool isOccupied, object occupant)
         {
-            this.roomNumber = RoomNumber;
-            this.isOccupied = IsOccupied;
-            this.occupant = Occupant;
+            roomNumber = RoomNumber;
+            isOccupied = IsOccupied;
+            occupant = Occupant;
         }
     }
 }
