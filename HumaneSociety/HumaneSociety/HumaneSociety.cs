@@ -20,6 +20,7 @@ namespace HumaneSociety
         string userInput;
         DbProviderFactory factory;
         UI userInterface;
+        List<Array> CSVImportData = new List<Array>();
 
         //constructor
         public HumaneSociety()
@@ -161,17 +162,19 @@ namespace HumaneSociety
         {
             try
             {
-                string[] records = File.ReadAllLines(@"humaneSociety - Sheet1.csv");
-                var t1 = records
-                    .Select(l => l.Split(','));
-                foreach( var t in t1)
+                string[] records = File.ReadAllLines(@"..\..\..\humaneSociety - Sheet1.csv");
+                string[] elementArray;
+                List<string> recordsList = records.ToList();
+                List<Array> CSVList = new List<Array>();
+                foreach (var element in recordsList)
                 {
-                    Console.WriteLine(t);
+                    elementArray = element.Split(',');
+                    CSVList.Add(elementArray);
                 }
             }
             catch(Exception e)
             {
-                throw new Exception(string.Format("{ 0 } occurred, invalid file path", e));
+                throw new Exception(string.Format("{0} occurred, invalid file path", e.Message));
             }
         }
 
@@ -189,10 +192,8 @@ namespace HumaneSociety
         {
 
         }
-        //[ TEST CODE BELOW to see if DATA Table is connected and able to configure ]
         //public void InsertAnimalData()
         //{
-        //    //GetAnimalData();
         //    using (DbConnection connection = factory.CreateConnection())
         //    {
         //        if (connection == null)

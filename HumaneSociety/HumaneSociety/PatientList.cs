@@ -21,7 +21,7 @@ namespace HumaneSociety
             }
             catch (Exception e)
             {
-                throw new Exception(string.Format("{0} occurred, invalid input.", e));
+                throw new Exception(string.Format("{0} occurred, invalid input.", e.Message));
             }
         }
         public void DeletePatient(object patient)
@@ -32,7 +32,7 @@ namespace HumaneSociety
             }
             catch (Exception e)
             {
-                throw new Exception(string.Format("{0} occurred, invalid input.", e));
+                throw new Exception(string.Format("{0} occurred, invalid input.", e.Message));
             }
         }
     }
