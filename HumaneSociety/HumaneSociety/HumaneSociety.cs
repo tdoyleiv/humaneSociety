@@ -31,29 +31,29 @@ namespace HumaneSociety
         public void RunProgram()
         {
 
-            while (running)
-            {
-                StartScreen();
-                switch (userInput)
-                {
-                    case "1":
-                        EmployeeScreen();
-                        break;
+            //while (running)
+            //{
+            //    StartScreen();
+            //    switch (userInput)
+            //    {
+            //        case "1":
+            //            EmployeeScreen();
+            //            break;
 
-                    case "2":
-                        AdopterScreen();
-                        break;
+            //        case "2":
+            //            AdopterScreen();
+            //            break;
 
-                    case "3":
-                        running = false;
-                        break;
-                }
-            }
+            //        case "3":
+            //            running = false;
+            //            break;
+            //    }
+            //}
 
             //StartScreen();
             //userInterface.HomeScreen();
-            //InsertAnimalData();
-            //ReadAnimalData();
+            InsertAnimalData();
+            ReadAnimalData();
         }
 
         public void StartScreen()
@@ -102,8 +102,7 @@ namespace HumaneSociety
 
                 command.Connection = connection;
 
-                //command.CommandText = "INSERT INTO Animals (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, Gender, WeightLBS, Primary, Temperament, AdoptionStatus, Price) VALUES ('Cat', 'Admiral Whiskers', 'Scottish Fold', 10, 'Male', 6, 'Blue', 'Intelligent', 'Unadopted', 100)";
-                command.CommandText = "INSERT INTO Animals (AnimalCategory, Name, Age) VALUES ('Cat', 'FuckBoy', 2)";
+                command.CommandText = "INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ('Cat', 'Admiral Whiskers', 'Scottish Fold', 10, 'Male', 6, 'Blue', 'Intelligent', 'Unadopted', 100)";
                 command.ExecuteNonQuery();
 
             }
@@ -133,21 +132,17 @@ namespace HumaneSociety
 
                 command.Connection = connection;
 
-                command.CommandText = "Select * From Animals";
+                command.CommandText = "Select * From AnimalList";
                 using (DbDataReader dataReader = command.ExecuteReader())
                 {
-                    Console.WriteLine("Animal ID \t | Animal Type" );
+                    //Console.WriteLine("Animal ID \t | Animal Type" );
                     while (dataReader.Read())
                     {
-<<<<<<< HEAD
-                        Console.WriteLine($"{dataReader["AnimalID"]} " + $"{dataReader["AnimalCategory"]} " + $"{dataReader["Name"]} " + $"{dataReader["Age"]} ");
-=======
                         Console.WriteLine(String.Format("{0} \t | {1} \t| {2} \t | {3} \t | {4} \t | {5} \t | {6} \t | {7}", 
                             dataReader[0], dataReader[1], dataReader[2], dataReader[3], dataReader[4], dataReader[5], dataReader[6], dataReader[7]));                        
                         //Console.WriteLine($"{dataReader["AnimalID"]} " + $"{dataReader["AnimalType"]} " + $"{dataReader["FirstName"]} " 
                         //    + $"{dataReader["Price"]} " + $"{dataReader["ShotsStatus"]} " + $"{dataReader["AdoptionStatus"]} "
                         //     + $"{dataReader["WeeklyFoodconsumption"]} ");
->>>>>>> a6f2acdf4ed8ad7c4815e499ae90a6bbd5e1116d
                     }
                 }
 
