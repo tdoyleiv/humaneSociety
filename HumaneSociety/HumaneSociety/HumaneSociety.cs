@@ -54,7 +54,8 @@ namespace HumaneSociety
 
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Animal (AnimalType, RoomNumber, FirstName) VALUES ('cat', 10, 'Jubei')";
+                //command.CommandText = "INSERT INTO Animals (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, Gender, WeightLBS, Primary, Temperament, AdoptionStatus, Price) VALUES ('Cat', 'Admiral Whiskers', 'Scottish Fold', 10, 'Male', 6, 'Blue', 'Intelligent', 'Unadopted', 100)";
+                command.CommandText = "INSERT INTO Animals (AnimalCategory, Name, Age) VALUES ('Cat', 'FuckBoy', 2)";
                 command.ExecuteNonQuery();
 
             }
@@ -78,18 +79,18 @@ namespace HumaneSociety
 
                 if (command == null)
                 {
-                    Console.WriteLine("comman error");
+                    Console.WriteLine("Command Error");
                     return;
                 }
 
                 command.Connection = connection;
 
-                command.CommandText = "Select * From Animal";
+                command.CommandText = "Select * From Animals";
                 using (DbDataReader dataReader = command.ExecuteReader())
                 {
                     while (dataReader.Read())
                     {
-                        Console.WriteLine($"{dataReader["AnimalID"]} " + $"{dataReader["AnimalType"]} " + $"{dataReader["FirstName"]} ");
+                        Console.WriteLine($"{dataReader["AnimalID"]} " + $"{dataReader["AnimalCategory"]} " + $"{dataReader["Name"]} " + $"{dataReader["Age"]} ");
                     }
                 }
 
