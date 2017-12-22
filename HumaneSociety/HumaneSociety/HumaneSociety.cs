@@ -80,6 +80,7 @@ namespace HumaneSociety
 
         public void InsertAnimalData()
         {
+            GetAnimalData();
             using (DbConnection connection = factory.CreateConnection())
             {
                 if (connection == null)
@@ -102,7 +103,7 @@ namespace HumaneSociety
 
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ('Cat', 'Admiral Whiskers', 'Scottish Fold', 10, 'Male', 6, 'Blue', 'Intelligent', 'Unadopted', 100)";
+                command.CommandText = ("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", );
                 command.ExecuteNonQuery();
 
             }
@@ -138,8 +139,8 @@ namespace HumaneSociety
                     //Console.WriteLine("Animal ID \t | Animal Type" );
                     while (dataReader.Read())
                     {
-                        Console.WriteLine(String.Format("{0} \t | {1} \t| {2} \t | {3} \t | {4} \t | {5} \t | {6} \t | {7}", 
-                            dataReader[0], dataReader[1], dataReader[2], dataReader[3], dataReader[4], dataReader[5], dataReader[6], dataReader[7]));                        
+                        Console.WriteLine(String.Format("{0} \t | {1} \t| {2} \t | {3} \t | {4} \t | {5} \t | {6} \t | {7} \t {8} | \t {9}", 
+                            dataReader[0], dataReader[1], dataReader[2], dataReader[3], dataReader[4], dataReader[5], dataReader[6], dataReader[7], dataReader[8], dataReader[9]));                        
                         //Console.WriteLine($"{dataReader["AnimalID"]} " + $"{dataReader["AnimalType"]} " + $"{dataReader["FirstName"]} " 
                         //    + $"{dataReader["Price"]} " + $"{dataReader["ShotsStatus"]} " + $"{dataReader["AdoptionStatus"]} "
                         //     + $"{dataReader["WeeklyFoodconsumption"]} ");
