@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Common;
 using System.Configuration;
+using System.IO;
 
 namespace HumaneSociety
 {
@@ -105,7 +106,20 @@ namespace HumaneSociety
 
         public void EmployeeScreenImportCSV()
         {
-
+            try
+            {
+                string[] records = File.ReadAllLines(@"humaneSociety - Sheet1.csv");
+                var t1 = records
+                    .Select(l => l.Split(','));
+                foreach( var t in t1)
+                {
+                    Console.WriteLine(t);
+                }
+            }
+            catch(Exception e)
+            {
+                throw new Exception(string.Format("{ 0 } occurred, invalid file path", e));
+            }
         }
 
         public void EmployeeScreenUpdateAnimalStatus()
@@ -128,7 +142,7 @@ namespace HumaneSociety
 
         public void InsertAnimalData()
         {
-            GetAnimalData();
+            //GetAnimalData();
             using (DbConnection connection = factory.CreateConnection())
             {
                 if (connection == null)
@@ -151,7 +165,7 @@ namespace HumaneSociety
 
                 command.Connection = connection;
 
-                command.CommandText = ("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", );
+                //command.CommandText = ("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", );
                 command.ExecuteNonQuery();
 
             }
