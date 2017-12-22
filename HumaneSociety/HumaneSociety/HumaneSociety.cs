@@ -54,8 +54,6 @@ namespace HumaneSociety
 
             Console.WriteLine("Exiting the program, good day!");
 
-            //StartScreen();
-            //userInterface.HomeScreen();
             //InsertAnimalData();
             //ReadAnimalData();
         }
