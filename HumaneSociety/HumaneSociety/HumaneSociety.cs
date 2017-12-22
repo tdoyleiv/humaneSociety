@@ -246,9 +246,8 @@ namespace HumaneSociety
                 price = GetDecimalInput();
 
                 //command.CommandText = "INSERT INTO Animal (AnimalType, RoomNumber, FirstName) VALUES ('dog', 101, 'bob')";
-                command.CommandText = string.Format("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ('{0}', '{1}', '{2}', {3}, '{4}', '{5}', {6}, '{7}', '{8}', '{9}', {10})",
+                command.CommandText = string.Format("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')",
                     animalCategory, name, type, ageYears, gender, weightLBS, color, temperament, adoptionStatus, price);
-
                 command.ExecuteNonQuery();
 
             }
@@ -289,6 +288,7 @@ namespace HumaneSociety
             catch (Exception e)
             {
                 userInputInt = GetIntInput();
+                throw new Exception(string.Format("{0} occurred, invalid input", e.Message));
             }
 
             return userInputInt;
