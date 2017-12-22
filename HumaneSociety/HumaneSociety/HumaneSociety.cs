@@ -92,6 +92,22 @@ namespace HumaneSociety
             }
         }
 
+
+
+        public void DisplayEmployeeMenu()
+        {
+            Console.WriteLine("What would you like to do?:");
+            Console.WriteLine("[1] Add New Animal");
+            Console.WriteLine("[2] Update Animal Status");
+            Console.WriteLine("[3] Import CSV\n\n");
+            Console.WriteLine("[4] EXIT");
+        }
+
+        public void EmployeeScreenImportCSV()
+        {
+
+        }
+
         public void EmployeeScreenUpdateAnimalStatus()
         {
 
@@ -100,14 +116,6 @@ namespace HumaneSociety
         public void EmployeeScreenAddNewAnimal()
         {
 
-        }
-
-        public void DisplayEmployeeMenu()
-        {
-            Console.WriteLine("What would you like to do?:");
-            Console.WriteLine("[1] Add New Animal");
-            Console.WriteLine("[2] Update Animal Status\n\n");
-            Console.WriteLine("[3] EXIT");
         }
 
         public void AdopterScreen()
