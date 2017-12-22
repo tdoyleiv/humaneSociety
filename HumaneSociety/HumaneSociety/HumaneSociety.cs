@@ -12,6 +12,7 @@ namespace HumaneSociety
     {
         //member variables
         bool running = true;
+        bool isEmployee = true;
         string provider;
         string connectionString;
         string userInput;
@@ -31,43 +32,90 @@ namespace HumaneSociety
         public void RunProgram()
         {
 
-            //while (running)
-            //{
-            //    StartScreen();
-            //    switch (userInput)
-            //    {
-            //        case "1":
-            //            EmployeeScreen();
-            //            break;
+            while (running)
+            {
+                StartScreen();
+                switch (userInput)
+                {
+                    case "1":
+                        EmployeeScreen();
+                        break;
 
-            //        case "2":
-            //            AdopterScreen();
-            //            break;
+                    case "2":
+                        AdopterScreen();
+                        break;
 
-            //        case "3":
-            //            running = false;
-            //            break;
-            //    }
-            //}
+                    case "3":
+                        running = false;
+                        break;
+                }
+            }
+
+
+            Console.WriteLine("Exiting the program, good day!");
 
             //StartScreen();
             //userInterface.HomeScreen();
-            InsertAnimalData();
-            ReadAnimalData();
+            //InsertAnimalData();
+            //ReadAnimalData();
         }
 
         public void StartScreen()
         {
+            Console.Clear();
             userInterface.HomeScreen();
             userInput = userInterface.GetUserStringInput();
         }
 
         public void EmployeeScreen()
         {
+            Console.Clear();
+            isEmployee = true;
+            while (isEmployee)
+            {
+                DisplayEmployeeMenu();
+                userInput = userInterface.GetUserStringInput();
+                switch (userInput)
+                {
+                    case "1":
+                        EmployeeScreenAddNewAnimal();
+                        break;
+
+                    case "2":
+                        EmployeeScreenUpdateAnimalStatus();
+                        break;
+
+                    case "3":
+                        isEmployee = false;
+                        break;
+                }
+            }
+        }
+
+
+
+        public void DisplayEmployeeMenu()
+        {
             Console.WriteLine("What would you like to do?:");
             Console.WriteLine("[1] Add New Animal");
             Console.WriteLine("[2] Update Animal Status");
-            userInput = userInterface.GetUserStringInput();
+            Console.WriteLine("[3] Import CSV\n\n");
+            Console.WriteLine("[4] EXIT");
+        }
+
+        public void EmployeeScreenImportCSV()
+        {
+
+        }
+
+        public void EmployeeScreenUpdateAnimalStatus()
+        {
+
+        }
+
+        public void EmployeeScreenAddNewAnimal()
+        {
+
         }
 
         public void AdopterScreen()
