@@ -79,19 +79,36 @@ namespace HumaneSociety
                 switch (userInput)
                 {
                     case "1":
-                        AdopterScreenAnimalSearch();
+                        AdopterScreenSearchForAnimal();
                         break;
 
                     case "2":
-                        AdopterScreenCreateProfile();
+                        AdopterScreenCreateProfile();                      
                         break;
 
                     case "3":
+                        AdopterScreenDisplayAnimalDatabase();
+                        break;
+
+                    case "4":
                         isAdopter = false;
                         break;
                 }
-            }
-            
+            }          
+        }
+
+        public void DisplayAdopterMenu()
+        {
+            Console.WriteLine("What would you like to do?:");
+            Console.WriteLine("[1] Search For Animal");
+            Console.WriteLine("[2] Create Profile");
+            Console.WriteLine("[3] Display Animal Database\n\n");
+            Console.WriteLine("[4] EXIT");
+        }
+
+        public void AdopterScreenDisplayAnimalDatabase()
+        {
+            ReadAnimalData();
         }
 
         public void AdopterScreenCreateProfile()
@@ -99,17 +116,9 @@ namespace HumaneSociety
 
         }
 
-        public void AdopterScreenAnimalSearch()
+        public void AdopterScreenSearchForAnimal()
         {
-
-        }
-
-        public void DisplayAdopterMenu()
-        {
-            Console.WriteLine("What would you like to do?:");
-            Console.WriteLine("[1] Search For Animal");
-            Console.WriteLine("[2] Create Profile\n\n");
-            Console.WriteLine("[3] EXIT");
+            
         }
 
         public void EmployeeScreen()
@@ -142,6 +151,16 @@ namespace HumaneSociety
             }
         }
 
+        public void DisplayEmployeeMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("What would you like to do?:");
+            Console.WriteLine("[1] Add New Animal");
+            Console.WriteLine("[2] Update Animal Status");
+            Console.WriteLine("[3] Import CSV\n\n");
+            Console.WriteLine("[4] EXIT");
+        }
+
         public void EmployeeScreenImportCSV()
         {
 
@@ -157,17 +176,9 @@ namespace HumaneSociety
 
         }
 
-        public void DisplayEmployeeMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("What would you like to do?:");
-            Console.WriteLine("[1] Add New Animal");
-            Console.WriteLine("[2] Update Animal Status");
-            Console.WriteLine("[3] Import CSV\n\n");
-            Console.WriteLine("[4] EXIT");
-        }
 
-        //[ TEST CODE to see if DATA Table is connected and able to configure ]
+
+        //[ TEST CODE BELOW to see if DATA Table is connected and able to configure ]
         //public void InsertAnimalData()
         //{
         //    //GetAnimalData();
