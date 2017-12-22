@@ -85,10 +85,6 @@ namespace HumaneSociety
                         break;
 
                     case "3":
-                        AdopterScreenDisplayAnimalDatabase();
-                        break;
-
-                    case "4":
                         isAdopter = false;
                         break;
                 }
@@ -99,14 +95,8 @@ namespace HumaneSociety
         {
             Console.WriteLine("What would you like to do?:");
             Console.WriteLine("[1] Search For Animal");
-            Console.WriteLine("[2] Create Profile");
-            Console.WriteLine("[3] Display Animal Database\n\n");
-            Console.WriteLine("[4] EXIT");
-        }
-
-        public void AdopterScreenDisplayAnimalDatabase()
-        {
-            ReadAnimalData();
+            Console.WriteLine("[2] Create Profile\n\n");
+            Console.WriteLine("[3] EXIT");
         }
 
         public void AdopterScreenCreateProfile()
@@ -139,10 +129,16 @@ namespace HumaneSociety
                         break;
 
                     case "3":
-                        EmployeeScreenImportCSV();
+                        EmployeeScreenDisplayAnimalDatabase();
+                        Console.WriteLine("Press Anything To Continue");
+                        Console.ReadKey();
                         break;
 
                     case "4":
+                        EmployeeScreenImportCSV();
+                        break;
+
+                    case "5":
                         isEmployee = false;
                         break;
                 }
@@ -155,13 +151,19 @@ namespace HumaneSociety
             Console.WriteLine("What would you like to do?:");
             Console.WriteLine("[1] Add New Animal");
             Console.WriteLine("[2] Update Animal Status");
-            Console.WriteLine("[3] Import CSV\n\n");
-            Console.WriteLine("[4] EXIT");
+            Console.WriteLine("[3] Display Animal Database");
+            Console.WriteLine("[4] Import CSV\n\n");
+            Console.WriteLine("[5] EXIT");
         }
 
         public void EmployeeScreenImportCSV()
         {
 
+        }
+
+        public void EmployeeScreenDisplayAnimalDatabase()
+        {
+            ReadAnimalData();
         }
 
         public void EmployeeScreenUpdateAnimalStatus()
