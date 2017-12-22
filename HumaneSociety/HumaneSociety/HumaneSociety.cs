@@ -34,6 +34,7 @@ namespace HumaneSociety
             while (running)
             {
                 StartScreen();
+
                 switch (userInput)
                 {
                     case "1":
@@ -47,8 +48,14 @@ namespace HumaneSociety
                     case "3":
                         running = false;
                         break;
+                    default:
+                        Console.Clear();
+                        break;
                 }
+              
             }
+
+            Console.WriteLine("Exiting the program, good day!");
 
             //StartScreen();
             //userInterface.HomeScreen();
@@ -135,7 +142,7 @@ namespace HumaneSociety
                 command.CommandText = "Select * From Animal";
                 using (DbDataReader dataReader = command.ExecuteReader())
                 {
-                    Console.WriteLine("Animal ID \t | Animal Type" );
+                    //Console.WriteLine("Animal ID \t | Animal Type" );
                     while (dataReader.Read())
                     {
                         Console.WriteLine(String.Format("{0} \t | {1} \t| {2} \t | {3} \t | {4} \t | {5} \t | {6} \t | {7}", 
