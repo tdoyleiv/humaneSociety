@@ -14,6 +14,7 @@ namespace HumaneSociety
         //member variables
         bool running = true;
         bool isEmployee = true;
+        bool isAdopter = true;
         string provider;
         string connectionString;
         string userInput;
@@ -32,7 +33,6 @@ namespace HumaneSociety
         //member methods
         public void RunProgram()
         {
-
             while (running)
             {
                 StartScreen();
@@ -55,8 +55,6 @@ namespace HumaneSociety
 
             Console.WriteLine("Exiting the program, good day!");
 
-            //StartScreen();
-            //userInterface.HomeScreen();
             //InsertAnimalData();
             //ReadAnimalData();
         }
@@ -68,12 +66,57 @@ namespace HumaneSociety
             userInput = userInterface.GetUserStringInput();
         }
 
+        public void AdopterScreen()
+        {
+            Console.Clear();
+            isAdopter = true;
+            while (isAdopter)
+            {
+                Console.Clear();
+                DisplayAdopterMenu();
+                userInput = userInterface.GetUserStringInput();
+                switch (userInput)
+                {
+                    case "1":
+                        AdopterScreenSearchForAnimal();
+                        break;
+
+                    case "2":
+                        AdopterScreenCreateProfile();                      
+                        break;
+
+                    case "3":
+                        isAdopter = false;
+                        break;
+                }
+            }          
+        }
+
+        public void DisplayAdopterMenu()
+        {
+            Console.WriteLine("What would you like to do?:");
+            Console.WriteLine("[1] Search For Animal");
+            Console.WriteLine("[2] Create Profile\n\n");
+            Console.WriteLine("[3] EXIT");
+        }
+
+        public void AdopterScreenCreateProfile()
+        {
+
+        }
+
+        public void AdopterScreenSearchForAnimal()
+        {
+            
+        }
+
         public void EmployeeScreen()
         {
             Console.Clear();
             isEmployee = true;
             while (isEmployee)
             {
+                Console.Clear();
                 DisplayEmployeeMenu();
                 userInput = userInterface.GetUserStringInput();
                 switch (userInput)
@@ -87,21 +130,31 @@ namespace HumaneSociety
                         break;
 
                     case "3":
+                        EmployeeScreenDisplayAnimalDatabase();
+                        Console.WriteLine("Press Anything To Continue");
+                        Console.ReadKey();
+                        break;
+
+                    case "4":
+                        EmployeeScreenImportCSV();
+                        break;
+
+                    case "5":
                         isEmployee = false;
                         break;
                 }
             }
         }
 
-
-
         public void DisplayEmployeeMenu()
         {
+            Console.Clear();
             Console.WriteLine("What would you like to do?:");
             Console.WriteLine("[1] Add New Animal");
             Console.WriteLine("[2] Update Animal Status");
-            Console.WriteLine("[3] Import CSV\n\n");
-            Console.WriteLine("[4] EXIT");
+            Console.WriteLine("[3] Display Animal Database");
+            Console.WriteLine("[4] Import CSV\n\n");
+            Console.WriteLine("[5] EXIT");
         }
 
         public void EmployeeScreenImportCSV()
@@ -122,6 +175,11 @@ namespace HumaneSociety
             }
         }
 
+        public void EmployeeScreenDisplayAnimalDatabase()
+        {
+            ReadAnimalData();
+        }
+
         public void EmployeeScreenUpdateAnimalStatus()
         {
 
@@ -131,45 +189,35 @@ namespace HumaneSociety
         {
 
         }
+        //[ TEST CODE BELOW to see if DATA Table is connected and able to configure ]
+        //public void InsertAnimalData()
+        //{
+        //    //GetAnimalData();
+        //    using (DbConnection connection = factory.CreateConnection())
+        //    {
+        //        if (connection == null)
+        //        {
+        //            Console.WriteLine("Connection Error");
+        //            return;
+        //        }
 
-        public void AdopterScreen()
-        {
-            Console.WriteLine("What would you like to do?:");
-            Console.WriteLine("[1] Search For Animal");
-            Console.WriteLine("[2] Create Profile");
-            userInput = userInterface.GetUserStringInput();
-        }
+        //        connection.ConnectionString = connectionString;
+        //        connection.Open();
 
-        public void InsertAnimalData()
-        {
-            //GetAnimalData();
-            using (DbConnection connection = factory.CreateConnection())
-            {
-                if (connection == null)
-                {
-                    Console.WriteLine("Connection Error");
-                    return;
-                }
+        //        //to pass queries to the database
+        //        DbCommand command = factory.CreateCommand();
 
-                connection.ConnectionString = connectionString;
-                connection.Open();
+        //        if (command == null)
+        //        {
+        //            Console.WriteLine("command error");
+        //            return;
+        //        }
+        //        command.Connection = connection;
+        //        command.CommandText = ("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", );
+        //        command.ExecuteNonQuery();
 
-                //to pass queries to the database
-                DbCommand command = factory.CreateCommand();
-
-                if (command == null)
-                {
-                    Console.WriteLine("command error");
-                    return;
-                }
-
-                command.Connection = connection;
-
-                //command.CommandText = ("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", );
-                command.ExecuteNonQuery();
-
-            }
-        }
+        //    }
+        //}
 
         public void ReadAnimalData()
         {
