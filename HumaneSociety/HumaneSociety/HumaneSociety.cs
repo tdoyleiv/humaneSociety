@@ -11,9 +11,12 @@ namespace HumaneSociety
     class HumaneSociety
     {
         //member variables
+        bool running = true;
         string provider;
         string connectionString;
+        string userInput;
         DbProviderFactory factory;
+        UI userInterface;
 
         //constructor
         public HumaneSociety()
@@ -21,13 +24,58 @@ namespace HumaneSociety
             provider = ConfigurationManager.AppSettings["provider"];
             connectionString = ConfigurationManager.AppSettings["connectionString"];
             factory = DbProviderFactories.GetFactory(provider);
+            userInterface = new UI();
         }
 
         //member methods
         public void RunProgram()
         {
-            InsertAnimalData();
-            ReadAnimalData();
+
+            while (running)
+            {
+                StartScreen();
+                switch (userInput)
+                {
+                    case "1":
+                        EmployeeScreen();
+                        break;
+
+                    case "2":
+                        AdopterScreen();
+                        break;
+
+                    case "3":
+                        running = false;
+                        break;
+                }
+            }
+
+            //StartScreen();
+            //userInterface.HomeScreen();
+            //InsertAnimalData();
+            //ReadAnimalData();
+        }
+
+        public void StartScreen()
+        {
+            userInterface.HomeScreen();
+            userInput = userInterface.GetUserStringInput();
+        }
+
+        public void EmployeeScreen()
+        {
+            Console.WriteLine("What would you like to do?:");
+            Console.WriteLine("[1] Add New Animal");
+            Console.WriteLine("[2] Update Animal Status");
+            userInput = userInterface.GetUserStringInput();
+        }
+
+        public void AdopterScreen()
+        {
+            Console.WriteLine("What would you like to do?:");
+            Console.WriteLine("[1] Search For Animal");
+            Console.WriteLine("[2] Create Profile");
+            userInput = userInterface.GetUserStringInput();
         }
 
         public void InsertAnimalData()
@@ -87,9 +135,14 @@ namespace HumaneSociety
                 command.CommandText = "Select * From Animal";
                 using (DbDataReader dataReader = command.ExecuteReader())
                 {
+                    Console.WriteLine("Animal ID \t | Animal Type" );
                     while (dataReader.Read())
                     {
-                        Console.WriteLine($"{dataReader["AnimalID"]} " + $"{dataReader["AnimalType"]} " + $"{dataReader["FirstName"]} ");
+                        Console.WriteLine(String.Format("{0} \t | {1} \t| {2} \t | {3} \t | {4} \t | {5} \t | {6} \t | {7}", 
+                            dataReader[0], dataReader[1], dataReader[2], dataReader[3], dataReader[4], dataReader[5], dataReader[6], dataReader[7]));                        
+                        //Console.WriteLine($"{dataReader["AnimalID"]} " + $"{dataReader["AnimalType"]} " + $"{dataReader["FirstName"]} " 
+                        //    + $"{dataReader["Price"]} " + $"{dataReader["ShotsStatus"]} " + $"{dataReader["AdoptionStatus"]} "
+                        //     + $"{dataReader["WeeklyFoodconsumption"]} ");
                     }
                 }
 
