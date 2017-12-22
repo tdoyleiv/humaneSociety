@@ -190,7 +190,108 @@ namespace HumaneSociety
 
         public void EmployeeScreenAddNewAnimal()
         {
+            string animalCategory;
+            string name;
+            string type;
+            int ageYears;
+            string gender;
+            decimal weightLBS;
+            string color;
+            string temperament;
+            string adoptionStatus;
+            decimal price;
 
+            using (DbConnection connection = factory.CreateConnection())
+            {
+                if (connection == null)
+                {
+                    Console.WriteLine("Connection Error");
+                    return;
+                }
+
+                connection.ConnectionString = connectionString;
+                connection.Open();
+
+                //to pass queries to the database
+                DbCommand command = factory.CreateCommand();
+
+                if (command == null)
+                {
+                    Console.WriteLine("command error");
+                    return;
+                }
+
+                command.Connection = connection;
+
+                //code starts here
+                Console.WriteLine("What is the animal's category?");
+                animalCategory = userInterface.GetUserStringInput();
+                Console.WriteLine("What is the animal's name?");
+                name = userInterface.GetUserStringInput();
+                Console.WriteLine("What is the animal's type?");
+                type = userInterface.GetUserStringInput();
+                Console.WriteLine("How old is the animal?");
+                ageYears = GetIntInput();
+                Console.WriteLine("What is the animal's gender?");
+                gender = userInterface.GetUserStringInput();
+                Console.WriteLine("What is the animal's weight?");
+                weightLBS = GetDecimalInput();
+                Console.WriteLine("What is the animal's color");
+                color = userInterface.GetUserStringInput();
+                Console.WriteLine("What is the animal's temperament?");
+                temperament = userInterface.GetUserStringInput();
+                Console.WriteLine("What is the animal's adoption status?");
+                adoptionStatus = userInterface.GetUserStringInput();
+                Console.WriteLine("What is the price range for this animal?");
+                price = GetDecimalInput();
+
+                //command.CommandText = "INSERT INTO Animal (AnimalType, RoomNumber, FirstName) VALUES ('dog', 101, 'bob')";
+                command.CommandText = string.Format("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ('{0}', '{1}', '{2}', {3}, '{4}', '{5}', {6}, '{7}', '{8}', '{9}', {10})",
+                    animalCategory, name, type, ageYears, gender, weightLBS, color, temperament, adoptionStatus, price);
+
+                command.ExecuteNonQuery();
+
+            }
+        }
+
+        public decimal GetDecimalInput()
+        {
+            decimal userInputDecimal;
+
+            try
+            {
+                userInputDecimal = System.Convert.ToDecimal(userInterface.GetUserStringInput());
+                if (userInputDecimal <= 0)
+                {
+                    GetDecimalInput();
+                }
+            }
+            catch (Exception e)
+            {
+                userInputDecimal = GetDecimalInput();
+            }
+
+            return userInputDecimal;
+        }
+
+        public int GetIntInput()
+        {
+            int userInputInt;
+
+            try
+            {
+                userInputInt = Convert.ToInt32(userInterface.GetUserStringInput());
+                if (userInputInt <= 0)
+                {
+                    userInputInt = GetIntInput();
+                }
+            }
+            catch (Exception e)
+            {
+                userInputInt = GetIntInput();
+            }
+
+            return userInputInt;
         }
         //public void InsertAnimalData()
         //{
