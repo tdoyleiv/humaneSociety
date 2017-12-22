@@ -1,0 +1,31 @@
+ID,AnimalCategory,Name,Type,AgeYRS,Gender,WeightLBS,PrimaryColor,Temperament,AdoptionStatus,Price
+1,Cat,Admiral Whiskers,Scottish Fold,10,Male,6,Blue,Intelligent,Unadopted,$350.00
+2,Cat,Braj,Tonkinese,3,Male,7,Mink,Friendly,Unadopted,$350.00
+3,Cat,Milo,Arabian Mau,1,Female,3,Orange,Curious,Unadopted,$350.00
+4,Cat,Behemoth,Bombay,2,Male,12,Black,Mischievous,Unadopted,$350.00
+5,Cat,Hobbes,Toyger,4,Male,8,Pumpkin,Mischievous,Unadopted,$350.00
+6,Ferret,Wiggles,Black Sable Mitt,5,Male,3,Black,Energetic,Unadopted,$300.00
+7,Ferret,Veil,Sable,3,Male,2,Sable,Mean,Unadopted,$300.00
+8,Ferret,Hillary,Champagne,7,Female,4,Tan,Sneaky,Unadopted,$300.00
+9,Ferret,Sofia,Albino,5,Female,3,White,Lazy,Unadopted,$300.00
+10,Ferret,Aleksandra,Cinnamon,1,Female,1,Brown,Friendly,Unadopted,$300.00
+11,Rabbit,Lenny,Californian,3,Male,6,White,Shy,Unadopted,$200.00
+12,Rabbit,George,Czech Red,4,Male,3,Rust,Intelligent,Unadopted,$200.00
+13,Rabbit,Bugs,Argente de Champagne,6,Male,2,Silver,Goofy,Unadopted,$200.00
+14,Rabbit,Jessica,Bourbonnais Grey,4,Female,3,Blue,Friendly,Unadopted,$200.00
+15,Rabbit,Roger,English Lop,5,Male,2,White,Goofy,Unadopted,$200.00
+16,Reptile,Kroq-Gar,Green Iguana,18,Male,20,Turquois,Intrepid,Unadopted,$400.00
+17,Reptile,Michelangelo,Red-Eared Slider Turtle,16,Male,0.5,Green,Goofy,Unadopted,$150.00
+18,Reptile,Leonardo,Red-Eared Slider Turtle,16,Male,0.5,Green,Calm,Unadopted,$150.00
+19,Reptile,Donatello,Red-Eared Slider Turtle,16,Male,0.5,Green,Intelligent,Unadopted,$150.00
+20,Reptile,Raphael,Red-Eared Slider Turtle,16,Male,0.5,Green,Mean,Unadopted,$150.00
+21,Bird,Zelda,African Grey Parrot,6,Female,1,Grey,Shy,Unadopted,$400.00
+22,Bird,Link,Monk Parakeet,6,Male,0.2,Green,Intrepid,Unadopted,$300.00
+23,Bird,Boudicca,Sulphur-Crested Cockatoo,10,Female,1,White,Curious,Unadopted,$400.00
+24,Bird,Scarlet,Red Factor Canary,4,Female,0.05,Red,Energetic,Unadopted,$250.00
+25,Bird,Abraham,Red-Shouldered Macaw,7,Male,0.4,Green,Friendly,Unadopted,$400.00
+26,Dog,Gustav,Viszla,1,Male,55,Rust,Energetic,Unadopted,$600.00
+27,Dog,Mathilda,Dachshund,4,Female,23,Black,Calm,Unadopted,$600.00
+28,Dog,Gene,American Water Spaniel,6,Male,60,Brown,Goofy,Unadopted,$600.00
+29,Dog,Dean,American Water Spaniel,6,Male,56,Brown,Goofy,Unadopted,$600.00
+30,Dog,Saoirse,Airedale,2,Female,47,Tan,Friendly,Unadopted,$600.00

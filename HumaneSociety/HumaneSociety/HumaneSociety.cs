@@ -31,36 +31,32 @@ namespace HumaneSociety
         public void RunProgram()
         {
 
-            while (running)
-            {
-                StartScreen();
+            //while (running)
+            //{
+            //    StartScreen();
+            //    switch (userInput)
+            //    {
+            //        case "1":
+            //            EmployeeScreen();
+            //            break;
 
-                switch (userInput)
-                {
-                    case "1":
-                        EmployeeScreen();
-                        break;
+            //        case "2":
+            //            AdopterScreen();
+            //            break;
 
-                    case "2":
-                        AdopterScreen();
-                        break;
+            //        case "3":
+            //            running = false;
+            //            break;
+            //    }
+            //}
 
-                    case "3":
-                        running = false;
-                        break;
-                    default:
-                        Console.Clear();
-                        break;
-                }
-              
-            }
 
             Console.WriteLine("Exiting the program, good day!");
 
             //StartScreen();
             //userInterface.HomeScreen();
-            //InsertAnimalData();
-            //ReadAnimalData();
+            InsertAnimalData();
+            ReadAnimalData();
         }
 
         public void StartScreen()
@@ -109,7 +105,7 @@ namespace HumaneSociety
 
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Animal (AnimalType, RoomNumber, FirstName) VALUES ('cat', 10, 'Jubei')";
+                command.CommandText = "INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ('Cat', 'Admiral Whiskers', 'Scottish Fold', 10, 'Male', 6, 'Blue', 'Intelligent', 'Unadopted', 100)";
                 command.ExecuteNonQuery();
 
             }
@@ -133,13 +129,13 @@ namespace HumaneSociety
 
                 if (command == null)
                 {
-                    Console.WriteLine("comman error");
+                    Console.WriteLine("Command Error");
                     return;
                 }
 
                 command.Connection = connection;
 
-                command.CommandText = "Select * From Animal";
+                command.CommandText = "Select * From AnimalList";
                 using (DbDataReader dataReader = command.ExecuteReader())
                 {
                     //Console.WriteLine("Animal ID \t | Animal Type" );
