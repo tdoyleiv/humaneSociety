@@ -13,6 +13,7 @@ namespace HumaneSociety
         //member variables
         bool running = true;
         bool isEmployee = true;
+        bool isAdopter = true;
         string provider;
         string connectionString;
         string userInput;
@@ -31,7 +32,6 @@ namespace HumaneSociety
         //member methods
         public void RunProgram()
         {
-
             while (running)
             {
                 StartScreen();
@@ -70,11 +70,46 @@ namespace HumaneSociety
         public void AdopterScreen()
         {
             Console.Clear();
+            isAdopter = true;
+            while (isAdopter)
+            {
+                Console.Clear();
+                DisplayAdopterMenu();
+                userInput = userInterface.GetUserStringInput();
+                switch (userInput)
+                {
+                    case "1":
+                        AdopterScreenAnimalSearch();
+                        break;
+
+                    case "2":
+                        AdopterScreenCreateProfile();
+                        break;
+
+                    case "3":
+                        isAdopter = false;
+                        break;
+                }
+            }
+            
+        }
+
+        public void AdopterScreenCreateProfile()
+        {
+
+        }
+
+        public void AdopterScreenAnimalSearch()
+        {
+
+        }
+
+        public void DisplayAdopterMenu()
+        {
             Console.WriteLine("What would you like to do?:");
             Console.WriteLine("[1] Search For Animal");
             Console.WriteLine("[2] Create Profile\n\n");
             Console.WriteLine("[3] EXIT");
-            userInput = userInterface.GetUserStringInput();
         }
 
         public void EmployeeScreen()
@@ -83,6 +118,7 @@ namespace HumaneSociety
             isEmployee = true;
             while (isEmployee)
             {
+                Console.Clear();
                 DisplayEmployeeMenu();
                 userInput = userInterface.GetUserStringInput();
                 switch (userInput)
@@ -131,6 +167,7 @@ namespace HumaneSociety
 
         }
 
+        //[ TEST CODE to see if DATA Table is connected and able to configure ]
         //public void InsertAnimalData()
         //{
         //    //GetAnimalData();
