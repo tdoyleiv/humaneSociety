@@ -11,7 +11,6 @@ namespace HumaneSociety
 {
     class HumaneSociety
     {
-        //member variables
         bool running = true;
         bool isEmployee = true;
         bool isAdopter = true;
@@ -21,8 +20,6 @@ namespace HumaneSociety
         DbProviderFactory factory;
         UI userInterface;
         List<Array> CSVImportData = new List<Array>();
-
-        //constructor
         public HumaneSociety()
         {
             provider = ConfigurationManager.AppSettings["provider"];
@@ -30,8 +27,6 @@ namespace HumaneSociety
             factory = DbProviderFactories.GetFactory(provider);
             userInterface = new UI();
         }
-
-        //member methods
         public void RunProgram()
         {
             while (running)
@@ -55,9 +50,6 @@ namespace HumaneSociety
 
 
             Console.WriteLine("Exiting the program, good day!");
-
-            //InsertAnimalData();
-            //ReadAnimalData();
         }
 
         public void StartScreen()
@@ -211,8 +203,6 @@ namespace HumaneSociety
 
                 connection.ConnectionString = connectionString;
                 connection.Open();
-
-                //to pass queries to the database
                 DbCommand command = factory.CreateCommand();
 
                 if (command == null)
@@ -220,10 +210,7 @@ namespace HumaneSociety
                     Console.WriteLine("command error");
                     return;
                 }
-
                 command.Connection = connection;
-
-                //code starts here
                 Console.WriteLine("What is the animal's category?");
                 animalCategory = userInterface.GetUserStringInput();
                 Console.WriteLine("What is the animal's name?");
@@ -244,8 +231,6 @@ namespace HumaneSociety
                 adoptionStatus = userInterface.GetUserStringInput();
                 Console.WriteLine("What is the price range for this animal?");
                 price = GetDecimalInput();
-
-                //command.CommandText = "INSERT INTO Animal (AnimalType, RoomNumber, FirstName) VALUES ('dog', 101, 'bob')";
                 command.CommandText = string.Format("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')",
                     animalCategory, name, type, ageYears, gender, weightLBS, color, temperament, adoptionStatus, price);
                 command.ExecuteNonQuery();
@@ -348,14 +333,10 @@ namespace HumaneSociety
                 command.CommandText = "Select * From AnimalList";
                 using (DbDataReader dataReader = command.ExecuteReader())
                 {
-                    //Console.WriteLine("Animal ID \t | Animal Type" );
                     while (dataReader.Read())
                     {
                         Console.WriteLine(String.Format("{0} \t | {1} \t| {2} \t | {3} \t | {4} \t | {5} \t | {6} \t | {7} \t {8} | \t {9}", 
                             dataReader[0], dataReader[1], dataReader[2], dataReader[3], dataReader[4], dataReader[5], dataReader[6], dataReader[7], dataReader[8], dataReader[9]));                        
-                        //Console.WriteLine($"{dataReader["AnimalID"]} " + $"{dataReader["AnimalType"]} " + $"{dataReader["FirstName"]} " 
-                        //    + $"{dataReader["Price"]} " + $"{dataReader["ShotsStatus"]} " + $"{dataReader["AdoptionStatus"]} "
-                        //     + $"{dataReader["WeeklyFoodconsumption"]} ");
                     }
                 }
 
