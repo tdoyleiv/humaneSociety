@@ -228,19 +228,11 @@ namespace HumaneSociety
                 Console.WriteLine("What is the price range for this animal?");
                 price = GetDecimalInput();
 
-
-
-                //roomNumber = GetRoomNumberValue();
-
-                //Console.WriteLine("What is the Animal's name?");
-                //firstName = Console.ReadLine();
-
-
                 //command.CommandText = "INSERT INTO Animal (AnimalType, RoomNumber, FirstName) VALUES ('dog', 101, 'bob')";
-                command.CommandText = string.Format("INSERT INTO Animal (AnimalType, RoomNumber, FirstName) VALUES ('{0}', {1}, '{2}')", animalType, roomNumber, firstName);
+                command.CommandText = string.Format("INSERT INTO AnimalList (AnimalCategory, Name, Type, AgeYRS, Gender, WeightLBS, PrimaryColor, Temperament, AdoptionStatus, Price) VALUES ('{0}', '{1}', '{2}', {3}, '{4}', '{5}', {6}, '{7}', '{8}', '{9}', {10})",
+                    animalCategory, name, type, ageYears, gender, weightLBS, color, temperament, adoptionStatus, price);
 
                 command.ExecuteNonQuery();
-                //code ends here
 
             }
         }
